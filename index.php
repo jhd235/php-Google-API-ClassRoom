@@ -62,7 +62,7 @@ function getClient()
 
 // Print the first 10 courses the user has access to.
 $optParams = array(
-  'pageSize' => 1000
+  'pageSize' => 9999999
 );
 
 function getEmail($service, $userID){
@@ -89,10 +89,11 @@ if (count($results->getCourses()) == 0) {
     $course = $results->getCourses();
     for ($i=0;$i<count($course); $i++) {
         //foreach ($results->getCourses() as $course) {
-        if ($course[$i]->getOwnerId() == 107618027634625870454) {
-            $output .= "<tr><td>" . $course[$i]->getSection() . "</td> <td>" . $course[$i]->getName() . "</td> <td>" . $course[$i]->getCourseState() .
+        //if ($course[$i]->getOwnerId() == 107618027634625870454) {
+        //if ($course[$i]->getOwnerId() == 105661863261942468476) {
+            $output .= "<tr><td>" . $course[$i]->getSection() . "</td> <td><a href=grades.php?courseID=".$course[$i]->getId().">" . $course[$i]->getName() . "</a></td> <td>" . $course[$i]->getCourseState() .
                 "</td> <td>" . $course[$i]->getCreationTime() . "</td> <td>" . $course[$i]->getId() . "</td> <td>".$course[$i]->getOwnerId()."</td></tr>";
-        }
+        //}
     }
     $output.="</table>";
 }
